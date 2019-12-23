@@ -33,8 +33,7 @@ class Functions(object):
                     for _ in range(3):
                         shape.rotate()
                     if shape.collide():
-                        for _ in range(3):
-                            shape.rotate()
+                        shape.rotate()
                 elif event.key == pygame.K_SPACE:
                     while True:
                         if shape.update():
@@ -115,6 +114,6 @@ class Functions(object):
     def restart_game(self):
         self.display.reset_data()
         self.information.reset_data()
-        self.information.score = 0
+        self.information.reset_info()
         self.shapes.empty()
         self.initial_shape()
