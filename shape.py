@@ -114,6 +114,7 @@ class Shape(pygame.sprite.Sprite):
             for j in range(len(self.data[self.z][i])):
                 if self.data[self.z][i][j]:
                     self.information.data[i][j] = self.color
+        self.information.legend_score[self.z] += 1
 
     def print_shape(self):
         for i in range(self.size[1]):
