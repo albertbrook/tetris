@@ -1,11 +1,11 @@
-# 俄罗斯方块
+﻿# 俄罗斯方块
 基于python实现的俄罗斯方块
 ## 运行
 ```
 pip install pygame
 python3 main.py
 ```
-![](images/demo.jpg)
+![](images/demo_new.jpg)
 ## 操作
 AD键左右移动<br>
 S键加速下降<br>
