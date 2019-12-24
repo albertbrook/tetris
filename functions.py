@@ -24,6 +24,12 @@ class Functions(object):
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:
+                    self.information.control = not self.information.control
+                    if self.information.control:
+                        pygame.time.set_timer(pygame.USEREVENT, 500)
+                if not self.information.control:
+                    return
                 if event.key in [pygame.K_w, pygame.K_k]:
                     shape.rotate()
                     if shape.collide():
@@ -61,6 +67,7 @@ class Functions(object):
         self.information.draw()
         for shape in self.shapes:
             shape.draw()
+        self.information.draw_pause()
         pygame.display.flip()
 
     def initial_shape(self):
@@ -75,6 +82,12 @@ class Functions(object):
                 return shape
 
     def lay_event(self, shape):
+        if not self.information.control:
+            pygame.time.set_timer(pygame.USEREVENT, 0)
+            pygame.time.set_timer(pygame.USEREVENT + 1, 0)
+            pygame.time.set_timer(pygame.USEREVENT + 2, 0)
+            pygame.time.set_timer(pygame.USEREVENT + 3, 0)
+            return
         keys = pygame.key.get_pressed()
         if keys[pygame.K_s]:
             if not self.u1:
