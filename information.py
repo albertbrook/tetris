@@ -21,6 +21,7 @@ class Information(object):
         ]
         self.legend_score = None
         self.reset_info()
+        self.control = True
 
         self.font = pygame.font.SysFont(None, self.settings.font_size)
 
@@ -68,3 +69,11 @@ class Information(object):
     def reset_info(self):
         self.score = 0
         self.legend_score = [0] * len(self.legend)
+
+    def draw_pause(self):
+        if self.control:
+            return
+        font_image = self.font.render("p a u s e", True, self.settings.split_line_color)
+        font_rect = font_image.get_rect()
+        font_rect.center = self.screen.get_rect().center
+        self.screen.blit(font_image, font_rect)
